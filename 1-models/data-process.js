@@ -205,9 +205,39 @@ function getCouponHistory(data) {
         });
       });
 
-//      myHistory.forEach(function(coupon, index, array){
-//        console.log(coupon);
-//        couponHistory.forEach(function(item, ind, arr){
+      myHistory.forEach(function(coupon, index, array){
+        console.log(coupon);
+        couponHistory.forEach(function(item, ind, arr){
+          if (coupon==item[0]) {
+            //console.log(coupon, ind);
+            var 優惠券圖片Url = ( couponHistory[ind][4] !=undefined)?couponHistory[ind][4]:"picPlaceholder.png";
+            var couponTitle = {
+              "優惠券編號": couponHistory[ind][0],              
+              "優惠券名稱": couponHistory[ind][1],
+              "優惠券時間": "已使用", //couponData[ind][2], // + " | " + couponData[ind][3], 
+              "優惠券說明": couponHistory[ind][3],
+              "優惠券圖片": 優惠券圖片Url,
+              "繳費狀況": "",
+              "繳費狀況顏色": "coral",              
+              "url": "2-views/couponDetail.html?couponId=" + couponHistory[ind][0],
+              "section": "A"             
+            };   
+            
+//            couponMember.forEach(function(coupon1, index1, array1){
+//              //console.log(index1, couponData[ind][0]);
+//              if (coupon1[0]==couponData[ind][0]) {
+//                for (var i=1; i< coupon1.length;i++){
+//                  //console.log(coupon1[i][3]);
+//                  if (coupon1[i][3]== userId[1]) {
+//                    couponTitle.優惠券時間 = coupon1[i][1];
+//                  }               
+//                }
+//              }
+//            });           
+                        
+            dataTemp.push(couponTitle);
+
+          }          
 //          if (coupon==item[0]) {
 //            //console.log(coupon, ind);
 //            var 課程圖片Url = ( item[11] !=undefined )?item[11]:"picPlaceholder.png";            
@@ -222,8 +252,8 @@ function getCouponHistory(data) {
 //            };
 //            dataTemp.push(couponTitle);
 //          }
-//        });
-//      });      
+        });
+      });      
    
       //console.log(dataTemp);
       data.success( dataTemp);  
