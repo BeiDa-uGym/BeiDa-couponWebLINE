@@ -28,7 +28,7 @@ function 取得經緯度() {
     console.log(position.coords.latitude, position.coords.longitude);
     目前位置緯度 = Math.floor(position.coords.latitude * 10000) / 10000;
     目前位置經度 = Math.floor(position.coords.longitude * 10000) / 10000;
-    $("#deleteMe").text("所在位置 緯度: " + String(目前位置緯度) + ", 經度: " + String(目前位置經度));
+    //$("#deleteMe").text("所在位置 緯度: " + String(目前位置緯度) + ", 經度: " + String(目前位置經度));
   });
 }
 
